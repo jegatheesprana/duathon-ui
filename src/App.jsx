@@ -1,33 +1,34 @@
-import { useState } from 'react'
+import React, { Suspense, useEffect } from "react";
+import {  CircularProgress, Backdrop } from "@mui/material";
 import reactLogo from './assets/react.svg'
 import './App.css'
+import { BrowserRouter } from "react-router-dom";
+import {AuthRouter, Router} from "./routes";
+
+const loading = (
+	<Backdrop open={true}>
+		<CircularProgress color="primary" size={60} />
+	</Backdrop>
+)
 
 function App() {
-  const [count, setCount] = useState(0)
+  const isAuthenticated = false
+  const ChooseRouter = () => {
+		console.log(isAuthenticated)
+		return isAuthenticated ? <Router/> : <AuthRouter />
+	}
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <BrowserRouter>
+      <div >
+        <Suspense fallback={loading} >
+          {isAuthenticated&&<NavBar user={{ displayName: "Steve" }} />}
+        </Suspense>
+        <Suspense fallback={loading} >
+          {ChooseRouter()}
+        </Suspense>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+    </BrowserRouter>
   )
 }
 
