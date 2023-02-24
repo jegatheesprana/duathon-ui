@@ -7,19 +7,14 @@ import App from "App";
 
 // Material Dashboard 2 React Context Provider
 import { MaterialUIControllerProvider } from "context";
-import { AuthProvider } from 'context/AuthContext'
-import { AdminAuthProvider } from "context/AdminAuthContext";
+
 import { ToastProvider } from 'context/ToastContext'
 
 ReactDOM.render(
   <BrowserRouter>
     <MaterialUIControllerProvider>
       <ToastProvider>
-        <AuthProvider>
-          <AdminAuthProvider>
-            <App />
-          </AdminAuthProvider>
-        </AuthProvider>
+        <App />
       </ToastProvider>
     </MaterialUIControllerProvider>
   </BrowserRouter>,
