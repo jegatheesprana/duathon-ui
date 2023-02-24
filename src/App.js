@@ -177,8 +177,8 @@ export default function App() {
                     <Sidenav
                         color={sidenavColor}
                         // brand={(transparentSidenav && !darkMode) || whiteSidenav ? brandDark : brandWhite}
-                        brand={<Avatar sx={{mx:2}}>{user?.firstname.charAt(0)}</Avatar>}
-                        brandName={loginStatus ? `${user?.firstname} ${user?.lastname}` : "Apartment Management"}
+                        brand={<Avatar sx={{ mx: 2 }}>{user?.name.charAt(0)}</Avatar>}
+                        brandName={loginStatus ? `${user?.name} ${user?.lastname}` : "Apartment Management"}
                         routes={loginStatus ? routes : authRoutes}
                         onMouseEnter={handleOnMouseEnter}
                         onMouseLeave={handleOnMouseLeave}
@@ -188,7 +188,7 @@ export default function App() {
                 </>
             )}
             {layout === "vr" && <Configurator />}
-            {loginStatus && user.loginEnabled
+            {loginStatus && user.enabled
                 ? <DashboardLayout>
                     <DashboardNavbar />
                     <Routes>
@@ -196,10 +196,14 @@ export default function App() {
 
                     </Routes>
                 </DashboardLayout>
-                : <Routes>
-                    {getRoutes(authRoutes)}
+                : (loginStatus && !user.enabled) ?
+                    <>
+                        <Navigate to="/authentication/login/notEnabled" />
+                    </>
+                    : <Routes>
+                        {getRoutes(authRoutes)}
 
-                </Routes>
+                    </Routes>
             }
         </ThemeProvider>
     );

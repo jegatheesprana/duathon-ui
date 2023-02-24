@@ -12,7 +12,7 @@ import Profile from "layouts/profile";
 import SignUp from "layouts/authentication/sign-up";
 import { Navigate, useRoutes } from "react-router-dom";
 
-import {SignIn, ForgotPassword, ResetPassword} from 'pages/authentication'
+import { SignIn, ForgotPassword, ResetPassword } from 'pages/authentication'
 
 // @mui icons
 import Icon from "@mui/material/Icon";

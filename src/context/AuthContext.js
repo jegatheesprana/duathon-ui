@@ -36,7 +36,7 @@ export function AuthProvider({ children }) {
         if (token) {
             // setIsLoading(true);
             if (checkTokenValidity(token)) {
-                fetch(process.env.REACT_APP_API_HOST + '/user/me', {
+                fetch(process.env.REACT_APP_API_HOST + '/pharmacy/user/me', {
                     method: 'GET',
                     headers: { "Authorization": "Bearer " + token },
                 }).then(res => {
@@ -108,7 +108,7 @@ export function AuthProvider({ children }) {
     }
 
     function login(email, password, rememberMe = false) {
-        return fetch(process.env.REACT_APP_API_HOST + `/auth/login`, {
+        return fetch(process.env.REACT_APP_API_HOST + `/pharmacy/auth/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password, rememberMe })
