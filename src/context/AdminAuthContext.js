@@ -10,12 +10,12 @@ const loading = (
 
 const AuthContext = createContext();
 
-export function useAuth() {
+export function useAdminAuth() {
     return useContext(AuthContext)
 }
 
-export function AuthProvider({ children }) {
-    const [token, setToken] = useState(localStorage.getItem('token'))
+export function AdminAuthProvider({ children }) {
+    const [token, setToken] = useState(localStorage.getItem('adminToken'))
     // const [user, setUser] = useState(JSON.parse(localStorage.getItem('user') || '{}'))
     const [user, setUser] = useState(null)
     const [loginStatus, setLoginStatus] = useState(false)
@@ -32,11 +32,11 @@ export function AuthProvider({ children }) {
     // }, [user]);
 
     useEffect(() => {
-        localStorage.setItem('token', token || '');
+        localStorage.setItem('adminToken', token || '');
         if (token) {
             // setIsLoading(true);
             if (checkTokenValidity(token)) {
-                fetch(process.env.REACT_APP_API_HOST + '/pharmacy/user/me', {
+                fetch(process.env.REACT_APP_API_HOST + '/admin/user/me', {
                     method: 'GET',
                     headers: { "Authorization": "Bearer " + token },
                 }).then(res => {
@@ -108,7 +108,7 @@ export function AuthProvider({ children }) {
     }
 
     function login(email, password, rememberMe = false) {
-        return fetch(process.env.REACT_APP_API_HOST + `/pharmacy/auth/login`, {
+        return fetch(process.env.REACT_APP_API_HOST + `/admin/auth/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password, rememberMe })
@@ -125,7 +125,7 @@ export function AuthProvider({ children }) {
                 setIsLoading(true)
                 setUser(data.employee)
                 setToken(data.accessToken)
-                localStorage.setItem('refreshToken', data.refreshToken)
+                localStorage.setItem('adminRefreshToken', data.refreshToken)
                 toastMessage("Logged in successfully")
                 // }
                 return () => {
@@ -140,9 +140,9 @@ export function AuthProvider({ children }) {
     }
 
     async function tokenRefresh() {
-        const refreshToken = localStorage.getItem('refreshToken')
+        const refreshToken = localStorage.getItem('adminRefreshToken')
         if (checkTokenValidity(refreshToken)) {
-            return fetch(process.env.REACT_APP_API_HOST + `/pharmacy/auth/refreshToken`, {
+            return fetch(process.env.REACT_APP_API_HOST + `/admin/auth/refreshToken`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ refreshToken })
@@ -181,8 +181,8 @@ export function AuthProvider({ children }) {
         setUser(null);
         setToken(null)
         setLoginStatus(false)
-        localStorage.removeItem('token')
-        localStorage.removeItem('refreshToken')
+        localStorage.removeItem('adminToken')
+        localStorage.removeItem('adminRefreshToken')
         toastMessage("Logged out successfully")
         return true;
     }
@@ -208,11 +208,11 @@ export function AuthProvider({ children }) {
     }
 
     const value = {
-        user,
+        adminUser: user,
         login,
         logout,
         customFetch,
-        loginStatus,
+        adminLoginStatus: loginStatus,
     }
 
     return (
