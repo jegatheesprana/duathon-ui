@@ -265,7 +265,7 @@ export default function App() {
                             color="text.secondary"
                             paragraph
                         >
-                            About {num_results} results
+                            About {0} results
                         </Typography>
                         <Grid container spacing={4}>
                             {results?.map(
@@ -295,7 +295,21 @@ export default function App() {
                                                     variant="h5"
                                                     component="h2"
                                                 >
-                                                    {name}
+                                                    Name {name}
+                                                </Typography>
+                                                <Typography
+                                                    gutterBottom
+                                                    variant="h5"
+                                                    component="h2"
+                                                >
+                                                    Supplier {supplier}
+                                                </Typography>
+                                                <Typography
+                                                    gutterBottom
+                                                    variant="h5"
+                                                    component="h2"
+                                                >
+                                                    Manufacture {manufacture}
                                                 </Typography>
                                                 <Button size="small"></Button>
                                                 <br />
