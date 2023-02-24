@@ -9,7 +9,7 @@ import Notifications from "layouts/notifications";
 import Profile from "layouts/profile";
 
 
-import SignUp from "layouts/authentication/sign-up";
+// import SignUp from "layouts/authentication/sign-up";
 import { Navigate, useRoutes } from "react-router-dom";
 
 import { SignIn, ForgotPassword, ResetPassword } from 'pages/authentication'
@@ -466,6 +466,11 @@ const authRoutes = [
         key: "login",
         route: "/authentication/login",
         component: <SignIn />,
+    },
+    {
+        key: "signup",
+        route: "/authentication/signup",
+        component: <SignUp />,
     },
     {
         key: "login",
