@@ -49,19 +49,46 @@ import ViewFacilityMembership from "pages/facilityMembership/viewFacilityMembers
 import ViewRoleInfo from "pages/role/viewRole";
 import EditOwner from "pages/apartment/EditOwner";
 import NewMultipleApartment from "pages/apartment/NewMultipleApartment";
+import ListDrug from "pages/drug/ListDrug";
+import NewDrug from "pages/drug/NewDrug";
+import NewUser from "pages/profile/NewUser";
 
 
 const routes = [
     {
         type: "collapse",
-        name: "Dashboard",
+        name: "Inventory",
         key: "dashboard",
         icon: <Icon fontSize="small">dashboard</Icon>,
         route: "/dashboard",
-        component: <Dashboard />,
+        component: <ListDrug />,
+    },
+    {
+        type: "collapse",
+        name: "Profile",
+        key: "profile",
+        icon: <Icon fontSize="small">person</Icon>,
+        route: "/profile",
+        component: <NewUser />,
+    },
+    {
+        // //type: "collapse",
+        name: "Add Drug",
+        key: "addDrug",
+        icon: <Icon fontSize="small">person</Icon>,
+        route: "/drugs/new",
+        component: <NewDrug />,
+    },
+    {
+        // //type: "collapse",
+        name: "Edit Drug",
+        key: "editRole",
+        icon: <Icon fontSize="small">person</Icon>,
+        route: "/drugs/edit/:id",
+        component: <NewDrug />,
     },
     // {
-    //   type: "collapse",
+    //   //type: "collapse",
     //   name: "Tables",
     //   key: "tables",
     //   icon: <Icon fontSize="small">table_view</Icon>,
@@ -69,7 +96,7 @@ const routes = [
     //   component: <Tables />,
     // },
     // {
-    //   type: "collapse",
+    //   //type: "collapse",
     //   name: "Billing",
     //   key: "billing",
     //   icon: <Icon fontSize="small">receipt_long</Icon>,
@@ -77,7 +104,7 @@ const routes = [
     //   component: <Billing />,
     // },
     // {
-    //   type: "collapse",
+    //   //type: "collapse",
     //   name: "RTL",
     //   key: "rtl",
     //   icon: <Icon fontSize="small">format_textdirection_r_to_l</Icon>,
@@ -85,7 +112,7 @@ const routes = [
     //   component: <RTL />,
     // },
     // {
-    //   type: "collapse",
+    //   //type: "collapse",
     //   name: "Notifications",
     //   key: "notifications",
     //   icon: <Icon fontSize="small">notifications</Icon>,
@@ -93,7 +120,7 @@ const routes = [
     //   component: <Notifications />,
     // },
     // {
-    //   type: "collapse",
+    //   //type: "collapse",
     //   name: "Profile",
     //   key: "profile",
     //   icon: <Icon fontSize="small">person</Icon>,
@@ -101,7 +128,7 @@ const routes = [
     //   component: <Profile />,
     // },
     {
-        // type: "collapse",
+        // //type: "collapse",
         name: "Add Employee",
         key: "addEmployee",
         icon: <Icon fontSize="small">person</Icon>,
@@ -109,7 +136,7 @@ const routes = [
         component: <NewEmployee />,
     },
     {
-        // type: "collapse",
+        // //type: "collapse",
         name: "Add Building",
         key: "addBuilding",
         icon: <Icon fontSize="small">person</Icon>,
@@ -117,7 +144,7 @@ const routes = [
         component: <NewBuilding />,
     },
     {
-        // type: "collapse",
+        // //type: "collapse",
         name: "Add Resource",
         key: "addResource",
         icon: <Icon fontSize="small">person</Icon>,
@@ -125,7 +152,7 @@ const routes = [
         component: <NewResource />,
     },
     {
-        // type: "collapse",
+        // //type: "collapse",
         name: "Add Facility Category",
         key: "addFacilityCategory",
         icon: <Icon fontSize="small">person</Icon>,
@@ -133,7 +160,7 @@ const routes = [
         component: <NewFacilityCategory />,
     },
     {
-        // type: "collapse",
+        // //type: "collapse",
         name: "Add Facility",
         key: "addFacility",
         icon: <Icon fontSize="small">person</Icon>,
@@ -141,7 +168,7 @@ const routes = [
         component: <NewFacility />,
     },
     {
-        // type: "collapse",
+        // //type: "collapse",
         name: "Add Customer",
         key: "addCustomer",
         icon: <Icon fontSize="small">person</Icon>,
@@ -149,7 +176,7 @@ const routes = [
         component: <NewCustomer />,
     },
     {
-        // type: "collapse",
+        // //type: "collapse",
         name: "Add Role",
         key: "addRole",
         icon: <Icon fontSize="small">person</Icon>,
@@ -157,7 +184,7 @@ const routes = [
         component: <NewRole />,
     },
     {
-        // type: "collapse",
+        // //type: "collapse",
         name: "Edit Employee",
         key: "editEmployee",
         icon: <Icon fontSize="small">person</Icon>,
@@ -165,7 +192,7 @@ const routes = [
         component: <NewEmployee />,
     },
     {
-        // type: "collapse",
+        // //type: "collapse",
         name: "Edit Role",
         key: "editRole",
         icon: <Icon fontSize="small">person</Icon>,
@@ -173,7 +200,7 @@ const routes = [
         component: <NewRole />,
     },
     {
-        // type: "collapse",
+        // //type: "collapse",
         name: "Edit Floor",
         key: "editFloor",
         icon: <Icon fontSize="small">person</Icon>,
@@ -181,7 +208,7 @@ const routes = [
         component: <NewFloor />,
     },
     {
-        // type: "collapse",
+        // //type: "collapse",
         name: "Edit Customer",
         key: "editCustomer",
         icon: <Icon fontSize="small">person</Icon>,
@@ -189,7 +216,7 @@ const routes = [
         component: <NewCustomer />,
     },
     {
-        // type: "collapse",
+        // //type: "collapse",
         name: "Edit Building",
         key: "editBuilding",
         icon: <Icon fontSize="small">person</Icon>,
@@ -197,7 +224,7 @@ const routes = [
         component: <NewBuilding />,
     },
     {
-        // type: "collapse",
+        // //type: "collapse",
         name: "Edit Resource",
         key: "editResource",
         icon: <Icon fontSize="small">person</Icon>,
@@ -205,7 +232,7 @@ const routes = [
         component: <NewResource />,
     },
     {
-        // type: "collapse",
+        // //type: "collapse",
         name: "Edit Facility Category",
         key: "editFacilityCategory",
         icon: <Icon fontSize="small">person</Icon>,
@@ -213,7 +240,7 @@ const routes = [
         component: <NewFacilityCategory />,
     },
     {
-        // type: "collapse",
+        // //type: "collapse",
         name: "Edit Facility",
         key: "editFacility",
         icon: <Icon fontSize="small">person</Icon>,
@@ -221,7 +248,7 @@ const routes = [
         component: <NewFacility />,
     },
     {
-        type: "collapse",
+        // //type: "collapse",
         name: "Employee",
         key: "employees",
         icon: <BadgeIcon />,
@@ -229,7 +256,7 @@ const routes = [
         component: <ListEmployees />,
     },
     {
-        type: "collapse",
+        //type: "collapse",
         name: "Customer",
         key: "customers",
         icon: <Icon fontSize="small">person</Icon>,
@@ -237,7 +264,7 @@ const routes = [
         component: <ListCustomers />,
     },
     {
-        type: "collapse",
+        //type: "collapse",
         name: "Role",
         key: "roles",
         icon: <Icon fontSize="small">admin_panel_settings</Icon>,
@@ -251,7 +278,7 @@ const routes = [
     //     icon: <Icon fontSize="small">person</Icon>,
     //     items: [
     //         {
-    //             type: "collapse",
+    //             //type: "collapse",
     //             name: "Role",
     //             key: "roles",
     //             icon: <Icon fontSize="small">person</Icon>,
@@ -259,7 +286,7 @@ const routes = [
     //             component: <ListRoles />,
     //         },
     //         {
-    //             type: "collapse",
+    //             //type: "collapse",
     //             name: "Building",
     //             key: "buildings",
     //             icon: <Icon fontSize="small">person</Icon>,
@@ -269,7 +296,7 @@ const routes = [
     //     ]
     // },
     {
-        type: "collapse",
+        //type: "collapse",
         name: "Building",
         key: "buildings",
         icon: <Icon fontSize="small">apartment</Icon>,
@@ -277,7 +304,7 @@ const routes = [
         component: <ListBuildings />,
     },
     {
-        type: "collapse",
+        //type: "collapse",
         name: "Resource",
         key: "resources",
         icon: <Icon fontSize="small">local_drink</Icon>,
@@ -285,7 +312,7 @@ const routes = [
         component: <ListResources />,
     },
     {
-        type: "collapse",
+        //type: "collapse",
         name: "Facility Category",
         key: "facilityCategories",
         icon: <Icon fontSize="small">fitness_center</Icon>,
@@ -293,7 +320,7 @@ const routes = [
         component: <ListFacilityCategories />,
     },
     {
-        // type: "collapse",
+        // //type: "collapse",
         name: "Add Department",
         key: "addDepartment",
         icon: <Icon fontSize="small">person</Icon>,
@@ -301,7 +328,7 @@ const routes = [
         component: <NewDepartment />,
     },
     {
-        //type: "collapse",
+        ////type: "collapse",
         name: "Edit Department",
         key: "editDepartment",
         icon: <Icon fontSize="small">person</Icon>,
@@ -309,7 +336,7 @@ const routes = [
         component: <NewDepartment />,
     },
     {
-        type: "collapse",
+        //type: "collapse",
         name: "Department",
         key: "department",
         icon: <Icon fontSize="small">store</Icon>,
@@ -317,7 +344,7 @@ const routes = [
         component: <ListDepartments />,
     },
     // {
-    //     type: "collapse",
+    //     //type: "collapse",
     //     name: "Apartment",
     //     key: "apartment",
     //     icon: <Icon fontSize="small">person</Icon>,
@@ -325,7 +352,7 @@ const routes = [
     //     component: <ListApartments />,
     // },
     {
-        //type: "collapse",
+        ////type: "collapse",
         name: "Add Apartment",
         key: "addApartment",
         icon: <Icon fontSize="small">person</Icon>,
@@ -333,7 +360,7 @@ const routes = [
         component: <NewMultipleApartment />,
     },
     {
-        //type: "collapse",
+        ////type: "collapse",
         name: "Add Floor",
         key: "addFloor",
         icon: <Icon fontSize="small">person</Icon>,
@@ -341,7 +368,7 @@ const routes = [
         component: <NewFloor />,
     },
     {
-        //type: "collapse",
+        ////type: "collapse",
         name: "View Floor",
         key: "viewFloor",
         icon: <Icon fontSize="small">person</Icon>,
@@ -349,7 +376,7 @@ const routes = [
         component: <ViewFloor />,
     },
     {
-        //type: "collapse",
+        ////type: "collapse",
         name: "Edit Apartment",
         key: "editApartment",
         icon: <Icon fontSize="small">person</Icon>,
@@ -357,7 +384,7 @@ const routes = [
         component: <NewApartment />,
     },
     {
-        //type: "collapse",
+        ////type: "collapse",
         name: "Edit Owner",
         key: "editOwner",
         icon: <Icon fontSize="small">person</Icon>,
@@ -365,7 +392,7 @@ const routes = [
         component: <EditOwner />,
     },
     // {
-    //   type: "collapse",
+    //   //type: "collapse",
     //   name: "Sign In",
     //   key: "sign-in",
     //   icon: <Icon fontSize="small">login</Icon>,
@@ -373,7 +400,7 @@ const routes = [
     //   component: <SignIn />,
     // },
     {
-        // type: "collapse",
+        // //type: "collapse",
         name: "View Building",
         key: "viewBuilding",
         icon: <Icon fontSize="small">View Building</Icon>,
@@ -381,7 +408,7 @@ const routes = [
         component: <ViewBuilding />,
     },
     {
-        // type: "collapse",
+        // //type: "collapse",
         name: "View Employee",
         key: "viewEmployee",
         icon: <BadgeIcon />,
@@ -389,7 +416,7 @@ const routes = [
         component: <ViewEmployee />,
     },
     {
-        // type: "collapse",
+        // //type: "collapse",
         name: "View Customer",
         key: "viewCustomer",
         icon: <Icon fontSize="small">View Building</Icon>,
@@ -397,7 +424,7 @@ const routes = [
         component: <ViewCustomer />,
     },
     {
-        // type: "collapse",
+        // //type: "collapse",
         name: "View Apartment",
         key: "viewApartment",
         icon: <Icon fontSize="small">View Apartment</Icon>,
@@ -405,7 +432,7 @@ const routes = [
         component: <ViewApartment />,
     },
     {
-        // type: "collapse",
+        // //type: "collapse",
         name: "New FacilityMembership",
         key: "newFacilityMembership",
         icon: <Icon fontSize="small">New FacilityMembership</Icon>,
@@ -413,7 +440,7 @@ const routes = [
         component: <NewFacilityMembership />,
     },
     {
-        // type: "collapse",
+        // //type: "collapse",
         name: "Edit FacilityMembership",
         key: "editFacilityMembership",
         icon: <Icon fontSize="small">Edit FacilityMembership</Icon>,
@@ -421,7 +448,7 @@ const routes = [
         component: <NewFacilityMembership />,
     },
     {
-        // type: "collapse",
+        // //type: "collapse",
         name: "View FacilityMembership",
         key: "viewFacilityMembership",
         icon: <Icon fontSize="small">View FacilityMembership</Icon>,
@@ -429,7 +456,7 @@ const routes = [
         component: <ViewFacilityMembership />,
     },
     {
-        // type: "collapse",
+        // //type: "collapse",
         name: "View Facility",
         key: "viewFacility",
         icon: <Icon fontSize="small">View Facility</Icon>,
@@ -437,7 +464,7 @@ const routes = [
         component: <ViewFacility />,
     },
     {
-        // type: "collapse",
+        // //type: "collapse",
         name: "View Role",
         key: "viewRole",
         icon: <Icon fontSize="small">View Role</Icon>,
@@ -445,7 +472,7 @@ const routes = [
         component: <ViewRoleInfo />,
     },
     // {
-    //   type: "collapse",
+    //   //type: "collapse",
     //   name: "Sign Up",
     //   key: "sign-up",
     //   icon: <Icon fontSize="small">assignment</Icon>,
@@ -491,7 +518,7 @@ const authRoutes = [
         component: <ResetPassword />,
     },
     {
-        type: "collapse",
+        //type: "collapse",
         name: "Sign In",
         key: "navigate",
         icon: <Icon fontSize="small">login</Icon>,
@@ -513,7 +540,7 @@ export {
 //             // element: <LogoOnlyLayout />,
 //             children: [
 //                 {
-//                     type: "collapse",
+//                     //type: "collapse",
 //                     name: "Sign In",
 //                     key: "sign-in",
 //                     icon: <Icon fontSize="small">login</Icon>,
@@ -521,7 +548,7 @@ export {
 //                     component: <SignIn />,
 //                 },
 //                 {
-//                     type: "collapse",
+//                     //type: "collapse",
 //                     name: "Sign In",
 //                     key: "sign-in",
 //                     icon: <Icon fontSize="small">login</Icon>,

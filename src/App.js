@@ -178,7 +178,7 @@ export default function App() {
                         color={sidenavColor}
                         // brand={(transparentSidenav && !darkMode) || whiteSidenav ? brandDark : brandWhite}
                         brand={<Avatar sx={{ mx: 2 }}>{user?.name.charAt(0)}</Avatar>}
-                        brandName={loginStatus ? `${user?.name} ${user?.lastname}` : "Apartment Management"}
+                        brandName={loginStatus ? `${user?.name}` : "Pharmacy Management"}
                         routes={loginStatus ? routes : authRoutes}
                         onMouseEnter={handleOnMouseEnter}
                         onMouseLeave={handleOnMouseLeave}
